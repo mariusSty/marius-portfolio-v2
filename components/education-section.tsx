@@ -1,18 +1,18 @@
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-import { MagicCard } from "./ui/magic-card";
+import { BorderBeam } from "./ui/border-beam";
 
 const education = [
   {
-    school: "Institut G4 (Bac +5)",
-    degree: "Titre RNCP niveau 1 - Chef de projet en système d'information",
-    period: "Septembre 2015 — Juillet 2018",
+    school: "Institut G4",
+    degree: "Titre RNCP niveau 1 (Bac +5)",
+    period: "2015 — 2018",
     description: "Ecole de management et d'informatique en alternance",
   },
   {
-    school: "Université Claude Bernard Lyon 1 (Bac +2)",
-    degree: "DUT Informatique",
-    period: "Septembre 2013 — Juillet 2015",
+    school: "Université Claude Bernard Lyon 1",
+    degree: "DUT Informatique (Bac +2)",
+    period: "2013 — 2015",
     description:
       "Formation universitaire généraliste en informatique et programmation",
   },
@@ -29,35 +29,30 @@ export function EducationSection() {
           </p>
         </div>
 
-        <div className="grid gap-12">
+        <div className="grid grid-cols-2 gap-4">
           {/* Education */}
-          <div className="space-y-6">
-            {education.map((edu, index) => (
-              <Card key={index} className="border-none">
-                <MagicCard gradientColor="#D9D9D955" className="p-0">
-                  <CardContent className="p-6">
-                    <div className="space-y-3">
-                      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-                        <div>
-                          <h4 className="text-lg font-semibold">
-                            {edu.degree}
-                          </h4>
-                          <p className="text-primary font-medium">
-                            {edu.school}
-                          </p>
-                        </div>
-                        <Badge variant="outline">{edu.period}</Badge>
-                      </div>
-
-                      <p className="text-muted-foreground text-sm">
-                        {edu.description}
-                      </p>
+          {education.map((edu, index) => (
+            <Card key={index} className="border-none relative">
+              <CardContent className="p-6">
+                <div className="space-y-3">
+                  <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2">
+                    <div>
+                      <h4 className="text-lg font-semibold">{edu.degree}</h4>
+                      <p className="text-primary font-medium">{edu.school}</p>
                     </div>
-                  </CardContent>
-                </MagicCard>
-              </Card>
-            ))}
-          </div>
+                    <Badge variant="outline" className="text-nowrap">
+                      {edu.period}
+                    </Badge>
+                  </div>
+
+                  <p className="text-muted-foreground text-sm">
+                    {edu.description}
+                  </p>
+                </div>
+              </CardContent>
+              <BorderBeam />
+            </Card>
+          ))}
         </div>
       </div>
     </section>
