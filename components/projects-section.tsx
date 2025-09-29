@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Github, ExternalLink } from "lucide-react";
 import Image from "next/image";
+import { Lens } from "./ui/lens";
 
 const projects = [
   {
@@ -23,14 +24,6 @@ const projects = [
     github: "https://github.com/mariusSty/computer-scene-vanilla",
     demo: "https://computer-scene-vanilla.vercel.app",
   },
-  {
-    title: "Marius Portfolio v1",
-    description: "Développement de mon premier portfolio",
-    image: "/portfolio-v1.png",
-    technologies: ["React", "Vite", "ThreeJS", "TailwindCSS"],
-    github: "https://github.com/mariusSty/marius-portfolio",
-    demo: "https://marius-portfolio.vercel.app",
-  },
 ];
 
 export function ProjectsSection() {
@@ -41,26 +34,25 @@ export function ProjectsSection() {
           <h2 className="text-3xl font-bold tracking-tight">
             Projets Personnels
           </h2>
-          <p className="text-muted-foreground text-lg">
-            Une sélection de mes projets les plus récents et significatifs
-          </p>
         </div>
 
         <div className="grid gap-8">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid lg:grid-cols-2 gap-6">
             {projects.map((project, index) => (
               <Card
                 key={index}
                 className="overflow-hidden group hover:shadow-lg transition-shadow"
               >
                 <div className="relative h-48 overflow-hidden">
-                  <Image
-                    src={project.image || "/placeholder.svg"}
-                    alt={project.title}
-                    width={500}
-                    height={500}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
+                  <Lens zoomFactor={2} lensSize={150} isStatic={false}>
+                    <Image
+                      src={project.image || "/placeholder.svg"}
+                      alt={project.title}
+                      width={500}
+                      height={500}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                  </Lens>
                 </div>
                 <CardContent className="p-6">
                   <div className="space-y-3">
