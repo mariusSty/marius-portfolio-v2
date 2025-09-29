@@ -1,10 +1,9 @@
 import { Button } from "@/components/ui/button";
-import { Github, Linkedin, Mail, ExternalLink } from "lucide-react";
+import { Github, Linkedin, Mail } from "lucide-react";
 import { AnimatedSpan, Terminal, TypingAnimation } from "./ui/terminal";
 import { Particles } from "./ui/particles";
 import { ShimmerButton } from "./ui/shimmer-button";
 import { BorderBeam } from "./ui/border-beam";
-import { Card, CardContent } from "./ui/card";
 
 export function HeroSection() {
   return (
@@ -72,7 +71,7 @@ export function HeroSection() {
 
         <div className="flex justify-center lg:justify-end">
           <Terminal>
-            <TypingAnimation>Hello ! I'm Marius STEPHANY</TypingAnimation>
+            <TypingAnimation>Hello ! I&apos;m Marius STEPHANY</TypingAnimation>
             <AnimatedSpan className="text-blue-600">
               Love coding with JavaScript
             </AnimatedSpan>
