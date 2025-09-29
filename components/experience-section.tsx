@@ -1,5 +1,6 @@
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
+import { MagicCard } from "./ui/magic-card";
 
 const experiences = [
   {
@@ -165,58 +166,62 @@ export function ExperienceSection() {
                   <div className="w-3 h-3 bg-primary rounded-full border-4 border-background" />
                 </div>
 
-                <Card className="flex-1">
-                  <CardContent className="p-6">
-                    <div className="space-y-4">
-                      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-                        <div>
-                          <h3 className="text-xl font-semibold">{exp.role}</h3>
-                          <p className="text-primary font-medium">
-                            {exp.company}
-                          </p>
+                <Card className="border-none flex-1">
+                  <MagicCard gradientColor="#D9D9D955" className="p-0">
+                    <CardContent className="p-6">
+                      <div className="space-y-4">
+                        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+                          <div>
+                            <h3 className="text-xl font-semibold">
+                              {exp.role}
+                            </h3>
+                            <p className="text-primary font-medium">
+                              {exp.company}
+                            </p>
+                          </div>
+                          <Badge variant="outline" className="w-fit">
+                            {exp.period}
+                          </Badge>
                         </div>
-                        <Badge variant="outline" className="w-fit">
-                          {exp.period}
-                        </Badge>
-                      </div>
 
-                      <p className="text-muted-foreground text-sm">
-                        {exp.description}
-                      </p>
+                        <p className="text-muted-foreground text-sm">
+                          {exp.description}
+                        </p>
 
-                      <div className="space-y-3">
-                        <h4 className="font-medium text-sm">
-                          Missions réalisées :
-                        </h4>
-                        <ul className="space-y-1 text-sm text-muted-foreground">
-                          {exp.missions.map((mission, missionIndex) => (
-                            <li
-                              key={missionIndex}
-                              className="flex items-start gap-2"
-                            >
-                              <span className="w-1 h-1 bg-muted-foreground rounded-full mt-2 flex-shrink-0" />
-                              {mission}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
+                        <div className="space-y-3">
+                          <h4 className="font-medium text-sm">
+                            Missions réalisées :
+                          </h4>
+                          <ul className="space-y-1 text-sm text-muted-foreground">
+                            {exp.missions.map((mission, missionIndex) => (
+                              <li
+                                key={missionIndex}
+                                className="flex items-start gap-2"
+                              >
+                                <span className="w-1 h-1 bg-muted-foreground rounded-full mt-2 flex-shrink-0" />
+                                {mission}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
 
-                      <div className="space-y-2">
-                        <h4 className="font-medium text-sm">Compétences :</h4>
-                        <div className="flex flex-wrap gap-2">
-                          {exp.skills.map((skill, skillIndex) => (
-                            <Badge
-                              key={skillIndex}
-                              variant="secondary"
-                              className="text-xs"
-                            >
-                              {skill}
-                            </Badge>
-                          ))}
+                        <div className="space-y-2">
+                          <h4 className="font-medium text-sm">Compétences :</h4>
+                          <div className="flex flex-wrap gap-2">
+                            {exp.skills.map((skill, skillIndex) => (
+                              <Badge
+                                key={skillIndex}
+                                variant="secondary"
+                                className="text-xs"
+                              >
+                                {skill}
+                              </Badge>
+                            ))}
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </CardContent>
+                    </CardContent>
+                  </MagicCard>
                 </Card>
               </div>
             ))}

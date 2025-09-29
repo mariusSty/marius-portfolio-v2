@@ -1,5 +1,6 @@
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
+import { MagicCard } from "./ui/magic-card";
 
 const education = [
   {
@@ -32,22 +33,28 @@ export function EducationSection() {
           {/* Education */}
           <div className="space-y-6">
             {education.map((edu, index) => (
-              <Card key={index}>
-                <CardContent className="p-6">
-                  <div className="space-y-3">
-                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-                      <div>
-                        <h4 className="text-lg font-semibold">{edu.degree}</h4>
-                        <p className="text-primary font-medium">{edu.school}</p>
+              <Card key={index} className="border-none">
+                <MagicCard gradientColor="#D9D9D955" className="p-0">
+                  <CardContent className="p-6">
+                    <div className="space-y-3">
+                      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+                        <div>
+                          <h4 className="text-lg font-semibold">
+                            {edu.degree}
+                          </h4>
+                          <p className="text-primary font-medium">
+                            {edu.school}
+                          </p>
+                        </div>
+                        <Badge variant="outline">{edu.period}</Badge>
                       </div>
-                      <Badge variant="outline">{edu.period}</Badge>
-                    </div>
 
-                    <p className="text-muted-foreground text-sm">
-                      {edu.description}
-                    </p>
-                  </div>
-                </CardContent>
+                      <p className="text-muted-foreground text-sm">
+                        {edu.description}
+                      </p>
+                    </div>
+                  </CardContent>
+                </MagicCard>
               </Card>
             ))}
           </div>

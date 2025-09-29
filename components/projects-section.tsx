@@ -29,11 +29,14 @@ const projects = [
 export function ProjectsSection() {
   return (
     <section id="projects" className="py-24 px-6">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-4xl mx-auto">
         <div className="space-y-4 mb-16">
           <h2 className="text-3xl font-bold tracking-tight">
             Projets Personnels
           </h2>
+          <p className="text-muted-foreground text-lg">
+            Mes projets réalisés lors de mon temps libre
+          </p>
         </div>
 
         <div className="grid gap-8">

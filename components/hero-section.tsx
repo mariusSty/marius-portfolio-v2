@@ -73,16 +73,16 @@ export function HeroSection() {
           <Terminal>
             <TypingAnimation>Hello ! I&apos;m Marius STEPHANY</TypingAnimation>
             <AnimatedSpan className="text-blue-600">
-              Love coding with JavaScript
+              ❤︎ Love coding with JavaScript
             </AnimatedSpan>
             <AnimatedSpan className="text-green-500">
-              Love create some new projet
+              ❤︎ Love creating new projects
             </AnimatedSpan>
             <AnimatedSpan className="text-orange-600">
-              Ready for new opportunities
+              ★ Ready for new opportunities
             </AnimatedSpan>
             <AnimatedSpan className="text-purple-600">
-              Send me an email :)
+              → Send me an email :)
             </AnimatedSpan>
           </Terminal>
         </div>
