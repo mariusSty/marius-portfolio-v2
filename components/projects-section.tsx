@@ -1,11 +1,25 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Github, ExternalLink } from "lucide-react";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+import { ExternalLink, Github } from "lucide-react";
 import Image from "next/image";
 import { Lens } from "./ui/lens";
 
 const projects = [
+  {
+    title: "Moveo",
+    description:
+      "Réalisation d'une plateforme web pour permettre aux organisations d'événements de gérer leur planning, membres et communications + application mobile pour les inscriptions des membres",
+    image: "/moveo.png",
+    technologies: ["Next.js", "React Native", "TailwindCSS", "ShadcnUI"],
+    demo: "http://moveo.fit/",
+  },
   {
     title: "Cube Galaxy",
     description:
@@ -73,9 +87,21 @@ export function ProjectsSection() {
                       </Badge>
                     ))}
                     {project.technologies.length > 3 && (
-                      <Badge variant="secondary" className="text-xs">
-                        +{project.technologies.length - 3}
-                      </Badge>
+                      <TooltipProvider>
+                        <Tooltip>
+                          <TooltipTrigger asChild>
+                            <Badge
+                              variant="secondary"
+                              className="text-xs cursor-pointer"
+                            >
+                              +{project.technologies.length - 3}
+                            </Badge>
+                          </TooltipTrigger>
+                          <TooltipContent>
+                            <p>{project.technologies.slice(3).join(", ")}</p>
+                          </TooltipContent>
+                        </Tooltip>
+                      </TooltipProvider>
                     )}
                   </div>
                   <div className="flex gap-2 pt-2">
@@ -91,24 +117,36 @@ export function ProjectsSection() {
                         rel="noopener noreferrer"
                       >
                         <ExternalLink className="mr-1 h-3 w-3" />
-                        Démo
+                        Voir le site
                       </a>
                     </Button>
-                    <Button
-                      size="sm"
-                      variant="outline"
-                      className="flex-1 bg-transparent"
-                      asChild
-                    >
-                      <a
-                        href={project.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
+                    {project.github ? (
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        className="flex-1 bg-transparent"
+                        asChild
+                      >
+                        <a
+                          href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <Github className="mr-1 h-3 w-3" />
+                          Code
+                        </a>
+                      </Button>
+                    ) : (
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        className="flex-1 bg-transparent"
+                        disabled
                       >
                         <Github className="mr-1 h-3 w-3" />
-                        Code
-                      </a>
-                    </Button>
+                        Privé
+                      </Button>
+                    )}
                   </div>
                 </CardContent>
               </Card>
