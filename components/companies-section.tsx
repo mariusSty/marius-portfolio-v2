@@ -1,8 +1,8 @@
 "use client";
 
 import { Card } from "@/components/ui/card";
-import { cn } from "@/lib/utils";
-import { useCallback, useEffect, useState } from "react";
+import { AnimatePresence, motion } from "motion/react";
+import { useEffect, useState } from "react";
 
 const companies = [
   {
@@ -42,49 +42,12 @@ const companies = [
   },
 ];
 
-function CompanySlot({
-  company,
-  isVisible,
-}: {
-  company: (typeof companies)[number];
-  isVisible: boolean;
-}) {
-  return (
-    <Card
-      className={cn(
-        "flex flex-col items-center justify-center h-28 p-4 border-muted transition-all duration-500",
-        isVisible
-          ? "opacity-100 scale-100 blur-0"
-          : "opacity-0 scale-95 blur-sm",
-      )}
-    >
-      <span className="text-sm font-semibold text-center text-foreground">
-        {company.name}
-      </span>
-      <span className="text-xs text-muted-foreground text-center mt-1 line-clamp-2">
-        {company.description}
-      </span>
-    </Card>
-  );
-}
-
 export function CompaniesSection() {
   const [slots, setSlots] = useState([0, 1, 2]);
-  const [visible, setVisible] = useState([true, true, true]);
   const [nextSlotToChange, setNextSlotToChange] = useState(0);
 
-  const cycleSlot = useCallback(() => {
-    const slotIndex = nextSlotToChange;
-
-    // Fade out
-    setVisible((prev) => {
-      const next = [...prev];
-      next[slotIndex] = false;
-      return next;
-    });
-
-    // After fade out, swap company and fade in
-    setTimeout(() => {
+  useEffect(() => {
+    const interval = setInterval(() => {
       setSlots((prev) => {
         const next = [...prev];
         const usedIndices = new Set(next);
@@ -92,30 +55,23 @@ export function CompaniesSection() {
           .map((_, i) => i)
           .filter((i) => !usedIndices.has(i));
         if (available.length > 0) {
-          next[slotIndex] =
+          next[nextSlotToChange] =
             available[Math.floor(Math.random() * available.length)];
         }
         return next;
       });
-      setVisible((prev) => {
-        const next = [...prev];
-        next[slotIndex] = true;
-        return next;
-      });
-    }, 500);
-
-    setNextSlotToChange((prev) => (prev + 1) % 3);
+      setNextSlotToChange((prev) => (prev + 1) % 3);
+    }, 2000);
+    return () => clearInterval(interval);
   }, [nextSlotToChange]);
 
-  useEffect(() => {
-    const interval = setInterval(cycleSlot, 2000);
-    return () => clearInterval(interval);
-  }, [cycleSlot]);
-
   return (
-    <section id="companies" className="py-24 px-6">
+    <section
+      id="companies"
+      className="py-24 px-6 bg-gradient-to-b from-muted/20 to-background"
+    >
       <div className="max-w-4xl mx-auto">
-        <div className="space-y-4 mb-16">
+        <div className="space-y-4 mb-16 text-center">
           <h2 className="text-3xl font-bold tracking-tight">
             Ils m&apos;ont fait confiance
           </h2>
@@ -126,11 +82,27 @@ export function CompaniesSection() {
 
         <div className="grid grid-cols-3 gap-6">
           {slots.map((companyIndex, slotIndex) => (
-            <CompanySlot
-              key={slotIndex}
-              company={companies[companyIndex]}
-              isVisible={visible[slotIndex]}
-            />
+            <div key={slotIndex} className="relative h-28 overflow-hidden">
+              <AnimatePresence mode="popLayout">
+                <motion.div
+                  key={companyIndex}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.4, ease: "easeInOut" }}
+                  className="absolute inset-0"
+                >
+                  <Card className="flex flex-col items-center justify-center h-full p-4 border-muted">
+                    <span className="text-sm font-semibold text-center text-foreground">
+                      {companies[companyIndex].name}
+                    </span>
+                    <span className="text-xs text-muted-foreground text-center mt-1 line-clamp-2">
+                      {companies[companyIndex].description}
+                    </span>
+                  </Card>
+                </motion.div>
+              </AnimatePresence>
+            </div>
           ))}
         </div>
       </div>

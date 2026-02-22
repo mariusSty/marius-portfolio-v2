@@ -93,9 +93,9 @@ function TestimonialCard({
 
 export function TestimonialsSection() {
   return (
-    <section id="testimonials" className="py-24 px-6">
+    <section id="testimonials" className="py-24 px-6 bg-muted/10">
       <div className="max-w-4xl mx-auto">
-        <div className="space-y-4 mb-16">
+        <div className="space-y-4 mb-16 text-center">
           <h2 className="text-3xl font-bold tracking-tight">Témoignages</h2>
           <p className="text-muted-foreground text-lg">
             Ce que mes collaborateurs disent de moi
