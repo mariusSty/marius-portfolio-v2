@@ -1,14 +1,14 @@
+"use client";
+
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-import { MagicCard } from "./ui/magic-card";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "./ui/accordion";
-import { Button } from "./ui/button";
-import { useState } from "react";
+import { MagicCard } from "./ui/magic-card";
 
 const experiences = [
   {
@@ -170,7 +170,7 @@ export function ExperienceSection() {
             {experiences.map((exp, index) => (
               <div key={index} className="relative flex gap-8">
                 {/* Timeline dot */}
-                <div className="flex-shrink-0 w-16 flex justify-center">
+                <div className="shrink-0 w-16 flex justify-center">
                   <div className="w-3 h-3 bg-primary rounded-full border-4 border-background" />
                 </div>
 
@@ -205,7 +205,7 @@ export function ExperienceSection() {
                                       key={missionIndex}
                                       className="flex items-start gap-2"
                                     >
-                                      <span className="w-1 h-1 bg-muted-foreground rounded-full mt-2 flex-shrink-0" />
+                                      <span className="w-1 h-1 bg-muted-foreground rounded-full mt-2 shrink-0" />
                                       {mission}
                                     </li>
                                   ))}
