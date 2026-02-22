@@ -1,14 +1,15 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
+import { useEffect, useState } from "react";
 import { HyperText } from "./ui/hyper-text";
 
 const navItems = [
   { name: "À propos", href: "#hero" },
-  { name: "Expérience", href: "#experience" },
-  { name: "Formation", href: "#education" },
   { name: "Projets", href: "#projects" },
+  { name: "Stack", href: "#stack" },
+  { name: "Entreprises", href: "#companies" },
+  { name: "Témoignages", href: "#testimonials" },
 ];
 
 export function Navigation() {
@@ -16,7 +17,13 @@ export function Navigation() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["hero", "experience", "education", "projects"];
+      const sections = [
+        "hero",
+        "projects",
+        "stack",
+        "companies",
+        "testimonials",
+      ];
       const scrollPosition = window.scrollY + 100;
 
       for (const section of sections) {
