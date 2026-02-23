@@ -32,7 +32,7 @@ export function HeroSection() {
             </div>
           </div>
 
-          <div className="flex items-center justify-evenly">
+          <div className="flex flex-col sm:flex-row items-center justify-evenly gap-4">
             <a href="#projects">
               <ShimmerButton>Voir mes projets</ShimmerButton>
             </a>

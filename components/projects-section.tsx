@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
@@ -80,7 +81,7 @@ export function ProjectsSection() {
       id="projects"
       className="py-24 px-6 bg-linear-to-b from-background to-muted/20"
     >
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-5xl mx-auto px-8 sm:px-14">
         <div className="space-y-4 mb-16 text-center">
           <h2 className="text-3xl font-bold tracking-tight">
             Projets Personnels
@@ -94,13 +95,13 @@ export function ProjectsSection() {
           <Button
             variant="outline"
             size="icon"
-            className="absolute -left-12 z-20 bg-background"
+            className="absolute -left-4 sm:-left-12 z-20 bg-background"
             onClick={prev}
           >
             <ChevronLeft className="h-4 w-4" />
           </Button>
 
-          <div className="grid grid-cols-3 gap-4 w-full overflow-hidden">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 w-full overflow-hidden">
             <AnimatePresence
               mode="popLayout"
               initial={false}
@@ -121,7 +122,7 @@ export function ProjectsSection() {
                     duration: 0.5,
                     ease: [0.32, 0.72, 0, 1],
                   }}
-                  className="h-full"
+                  className={cn("h-full", offset !== 0 && "hidden sm:block")}
                 >
                   <ProjectCard project={project} isActive={offset === 0} />
                 </motion.div>
@@ -132,7 +133,7 @@ export function ProjectsSection() {
           <Button
             variant="outline"
             size="icon"
-            className="absolute -right-12 z-20 bg-background"
+            className="absolute -right-4 sm:-right-12 z-20 bg-background"
             onClick={next}
           >
             <ChevronRight className="h-4 w-4" />

@@ -93,15 +93,15 @@ export function ProjectCard({
             })}
           </Marquee>
         </div>
-        <div className="flex gap-2 pt-2 mt-auto">
-          <Button size="sm" className="flex-1" asChild>
+        <div className="flex flex-col sm:flex-row gap-2 pt-2 mt-auto">
+          <Button size="sm" className="w-full sm:flex-1" asChild>
             <a href={project.demo} target="_blank" rel="noopener noreferrer">
               <ExternalLink className="mr-1 h-3 w-3" />
               Voir le site
             </a>
           </Button>
-          {project.github ? (
-            <Button size="sm" className="flex-1" asChild>
+          {project.github && (
+            <Button size="sm" className="w-full sm:flex-1" asChild>
               <a
                 href={project.github}
                 target="_blank"
@@ -110,11 +110,6 @@ export function ProjectCard({
                 <Github className="mr-1 h-3 w-3" />
                 Code
               </a>
-            </Button>
-          ) : (
-            <Button size="sm" className="flex-1" disabled>
-              <Github className="mr-1 h-3 w-3" />
-              Privé
             </Button>
           )}
         </div>

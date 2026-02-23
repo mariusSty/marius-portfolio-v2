@@ -46,7 +46,7 @@ export function StackSection() {
         </div>
 
         <div className="relative">
-          <div className="grid grid-cols-4 gap-px border-2 bg-border">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-px border-2 bg-border">
             {mainStack.map((tool) => (
               <div
                 key={tool.name}
@@ -56,14 +56,14 @@ export function StackSection() {
                   name={tool.icon as Parameters<typeof StackIcon>[0]["name"]}
                   className="w-10 h-10 grayscale group-hover:grayscale-0 group-hover:-translate-y-2 transition-all duration-300"
                 />
-                <span className="text-xs text-muted-foreground opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+                <span className="text-xs text-muted-foreground opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 w-full text-center truncate">
                   {tool.name}
                 </span>
               </div>
             ))}
           </div>
 
-          <div className="grid grid-cols-8 gap-px border-2   bg-border -mt-px">
+          <div className="grid grid-cols-4 sm:grid-cols-8 gap-px border-2 bg-border -mt-px">
             {secondaryStack.map((tool) => (
               <div
                 key={tool.name}
@@ -73,7 +73,7 @@ export function StackSection() {
                   name={tool.icon as Parameters<typeof StackIcon>[0]["name"]}
                   className="w-6 h-6 grayscale group-hover:grayscale-0 group-hover:-translate-y-1 transition-all duration-300"
                 />
-                <span className="text-[10px] text-muted-foreground opacity-0 translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+                <span className="text-[10px] text-muted-foreground opacity-0 translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 w-full text-center truncate">
                   {tool.name}
                 </span>
               </div>
