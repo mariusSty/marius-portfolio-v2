@@ -60,7 +60,7 @@ export function ProjectsSection() {
   return (
     <section
       id="projects"
-      className="py-24 px-6 bg-gradient-to-b from-background to-muted/20"
+      className="py-24 px-6 bg-linear-to-b from-background to-muted/20"
     >
       <div className="max-w-5xl mx-auto">
         <div className="space-y-4 mb-16 text-center">
@@ -105,7 +105,7 @@ export function ProjectsSection() {
                   }}
                   className="h-full"
                 >
-                  <ProjectCard project={project} />
+                  <ProjectCard project={project} isActive={offset === 0} />
                 </motion.div>
               ))}
             </AnimatePresence>
