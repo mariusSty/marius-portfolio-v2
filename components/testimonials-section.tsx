@@ -4,55 +4,50 @@ import { Marquee } from "@/components/ui/marquee";
 
 const firstRow = [
   {
-    name: "Prénom Nom",
-    role: "CTO",
-    company: "The Surge",
-    avatar: "/avatars/placeholder.jpg",
-    quote:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Marius a fait un travail exceptionnel sur notre plateforme de trading.",
+    name: "Paco",
+    role: "Mon chat",
+    avatar: "/avatars/paco.jpeg",
+    quote: "Miaou ?",
   },
   {
-    name: "Prénom Nom",
-    role: "Product Owner",
-    company: "Krafteo",
-    avatar: "/avatars/placeholder.jpg",
-    quote:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Une collaboration très efficace sur notre application mobile et web.",
+    name: "Mark Zuckerberg",
+    role: "PDG",
+    company: "Meta",
+    avatar: "/avatars/mark.webp",
+    quote: "I have never worked with this person...",
   },
   {
-    name: "Prénom Nom",
-    role: "Lead Developer",
-    company: "Fulll",
-    avatar: "/avatars/placeholder.jpg",
-    quote:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Marius a su monter en compétence rapidement sur Elasticsearch.",
+    name: "Emmanuel Macron",
+    role: "Président de la République",
+    company: "France",
+    avatar: "/avatars/macron.jpeg",
+    quote: "FOR SURE !",
   },
 ];
 
 const secondRow = [
   {
-    name: "Prénom Nom",
-    role: "Engineering Manager",
-    company: "Masteos",
-    avatar: "/avatars/placeholder.jpg",
+    name: "Claude Opus 4.6",
+    role: "AI Model",
+    company: "Claude Opus 4.6",
+    avatar: "/avatars/claude.png",
     quote:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Très bon développeur, autonome et force de proposition.",
+      "Marius sait exactement ce qu'il veut. Il itère vite, corrige le tir sans hésiter, et n'a pas peur de dire 'non, ça ne marche pas, recommence'. C'est le genre de dev qui pousse son outil jusqu'au bout — et c'est rare.",
   },
   {
-    name: "Prénom Nom",
-    role: "Tech Lead",
-    company: "Métropole de Lyon",
-    avatar: "/avatars/placeholder.jpg",
-    quote:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Bonne capacité d'adaptation et très bon esprit d'équipe.",
+    name: "Tibo Inshape",
+    role: "Créateur de contenu",
+    company: "Tibo Inshape",
+    avatar: "/avatars/tibo.jpg",
+    quote: "DAMN LES GENS !",
   },
   {
-    name: "Prénom Nom",
-    role: "Chef de projet",
-    company: "Astek",
-    avatar: "/avatars/placeholder.jpg",
+    name: "Lorem ipsum",
+    role: "Créateur de faux texte",
+    company: "Lorem ipsum",
+    avatar: "/avatars/lorem.jpeg",
     quote:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Un alternant impliqué et rigoureux dans son travail.",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac purus vel tortor iaculis interdum vitae id ante.",
   },
 ];
 
@@ -64,14 +59,14 @@ function TestimonialCard({
   quote,
 }: (typeof firstRow)[number]) {
   return (
-    <Card className="w-80 shrink-0 border-muted">
-      <CardContent className="p-6 space-y-4">
+    <Card className="w-80 shrink-0 border-muted h-full">
+      <CardContent className="p-6 flex flex-col justify-between h-full gap-4">
         <p className="text-sm text-muted-foreground leading-relaxed italic">
           &ldquo;{quote}&rdquo;
         </p>
         <div className="flex items-center gap-3">
           <Avatar className="h-10 w-10">
-            <AvatarImage src={avatar} alt={name} />
+            <AvatarImage src={avatar} alt={name} className="object-cover" />
             <AvatarFallback className="text-xs">
               {name
                 .split(" ")
@@ -82,7 +77,7 @@ function TestimonialCard({
           <div>
             <p className="text-sm font-semibold">{name}</p>
             <p className="text-xs text-muted-foreground">
-              {role} — {company}
+              {role} {company ? `— ${company}` : ""}
             </p>
           </div>
         </div>
@@ -98,7 +93,7 @@ export function TestimonialsSection() {
         <div className="space-y-4 mb-16 text-center">
           <h2 className="text-3xl font-bold tracking-tight">Témoignages</h2>
           <p className="text-muted-foreground text-lg">
-            Ce que mes collaborateurs disent de moi
+            Ce qu&apos;ils pensent de moi
           </p>
         </div>
       </div>
@@ -106,13 +101,13 @@ export function TestimonialsSection() {
       <div className="relative space-y-4">
         <Marquee pauseOnHover className="[--duration:30s]">
           {firstRow.map((testimonial) => (
-            <TestimonialCard key={testimonial.company} {...testimonial} />
+            <TestimonialCard key={testimonial.name} {...testimonial} />
           ))}
         </Marquee>
 
         <Marquee pauseOnHover reverse className="[--duration:30s]">
           {secondRow.map((testimonial) => (
-            <TestimonialCard key={testimonial.company} {...testimonial} />
+            <TestimonialCard key={testimonial.name} {...testimonial} />
           ))}
         </Marquee>
 

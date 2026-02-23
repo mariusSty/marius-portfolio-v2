@@ -12,7 +12,18 @@ const projects: Project[] = [
     description:
       "Réalisation d'une plateforme web pour permettre aux organisations d'événements de gérer leur planning, membres et communications + application mobile pour les inscriptions des membres",
     image: "/moveo.png",
-    technologies: ["Next.js", "React Native", "TailwindCSS", "ShadcnUI"],
+    technologies: [
+      "Next.js",
+      "React",
+      "Expo",
+      "React Native",
+      "TypeScript",
+      "TailwindCSS",
+      "ShadcnUI",
+      "PostgreSQL",
+      "Prisma",
+      "Vercel",
+    ],
     demo: "http://moveo.fit/",
   },
   {
@@ -20,16 +31,23 @@ const projects: Project[] = [
     description:
       "Réalisation d'un timer de SpeedCubing (Rubik's Cube): génération de mélanges aléatoires, chronomètrage des résolutions par l'utilisateur",
     image: "/cube-galaxy.png",
-    technologies: ["Next.js", "TailwindCSS", "ThreeJS"],
+    technologies: [
+      "Next.js",
+      "React",
+      "TailwindCSS",
+      "ThreeJS",
+      "TypeScript",
+      "Vercel",
+    ],
     github: "https://github.com/mariusSty/cube-galaxy",
     demo: "https://cube-galaxy.vercel.app/",
   },
   {
     title: "Computer Scene",
     description:
-      "Création d'élements en 3D avec Blender, et intégration de la scène en Javascript",
+      "Création d'élements en 3D avec Blender, et intégration de la scène en Javascript. Exercice intégré à une formation ThreeJS que j'ai suivi en autonomie.",
     image: "/computer-scene.png",
-    technologies: ["ThreeJS", "Javascript", "Blender"],
+    technologies: ["ThreeJS", "Javascript", "Github", "Vercel"],
     github: "https://github.com/mariusSty/computer-scene-vanilla",
     demo: "https://computer-scene-vanilla.vercel.app",
   },

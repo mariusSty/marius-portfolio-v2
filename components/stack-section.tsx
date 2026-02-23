@@ -3,32 +3,32 @@
 import StackIcon from "tech-stack-icons";
 
 const mainStack = [
-  { name: "React", icon: "react" },
   { name: "Next.js", icon: "nextjs2" },
-  { name: "TailwindCSS", icon: "tailwindcss" },
-  { name: "React Native", icon: "react" },
   { name: "NestJS", icon: "nestjs" },
-  { name: "Express.js", icon: "expressjs" },
-  { name: "PostgreSQL", icon: "postgresql" },
-  { name: "MongoDB", icon: "mongodb" },
+  { name: "React", icon: "react" },
+  { name: "NodeJS", icon: "nodejs" },
+  { name: "TailwindCSS", icon: "tailwindcss" },
+  { name: "ShadcnUI", icon: "shadcnui" },
+  { name: "Expo", icon: "expo" },
+  { name: "Vercel", icon: "vercel" },
 ];
 
 const secondaryStack = [
-  { name: "Angular", icon: "angular" },
-  { name: "ShadcnUI", icon: "shadcnui" },
-  { name: "MaterialUI", icon: "materialui" },
-  { name: "SASS", icon: "sass" },
-  { name: ".NET", icon: "csharp" },
-  { name: "Elasticsearch", icon: "elastic" },
+  { name: "PostgreSQL", icon: "postgresql" },
+  { name: "MongoDB", icon: "mongodb" },
   { name: "Redis", icon: "redis" },
+  { name: "Elasticsearch", icon: "elastic" },
+  { name: "Express.js", icon: "expressjs" },
+  { name: "React Query", icon: "reactquery" },
+  { name: "Zod", icon: "zod" },
   { name: "Three.js", icon: "threejs" },
   { name: "Jest", icon: "jest" },
   { name: "Cypress", icon: "cypress" },
-  { name: "Git", icon: "git" },
+  { name: "Playwright", icon: "playwright" },
   { name: "Storybook", icon: "storybook" },
-  { name: "Expo", icon: "expo" },
+  { name: "Slack", icon: "slack" },
+  { name: "GitHub", icon: "github" },
   { name: "Linear", icon: "linear" },
-  { name: "Jira", icon: "jira" },
   { name: "Notion", icon: "notion" },
 ];
 

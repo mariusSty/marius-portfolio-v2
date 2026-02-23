@@ -15,7 +15,6 @@ const techIconMap: Record<string, string> = {
   ShadcnUI: "shadcnui",
   ThreeJS: "threejs",
   Javascript: "js",
-  Blender: "blender",
   TypeScript: "typescript",
   NestJS: "nestjs",
   PostgreSQL: "postgresql",
@@ -23,6 +22,13 @@ const techIconMap: Record<string, string> = {
   Angular: "angular",
   Express: "expressjs",
   Git: "git",
+  Storybook: "storybook",
+  Expo: "expo",
+  Linear: "linear",
+  Jira: "jira",
+  Notion: "notion",
+  Prisma: "prisma",
+  Vercel: "vercel",
 };
 
 export type Project = {
@@ -64,7 +70,9 @@ export function ProjectCard({
           {project.description}
         </p>
         <div className="overflow-hidden">
-          <Marquee className="[--duration:10s]">
+          <Marquee
+            className={isActive ? "[--duration:20s]" : "[--duration:0s]"}
+          >
             {project.technologies.map((tech) => {
               const iconName = techIconMap[tech];
               if (!iconName) return null;

@@ -9,12 +9,12 @@ const companies = [
   {
     name: "The Surge",
     description:
-      "Startup développant des applications dans le domaine de la blockchain et du trading",
+      "Startup développant un bot dans le domaine de la blockchain et du trading",
   },
   {
     name: "Krafteo",
     description:
-      "Start-up éditant une solution de planning et pilotage d'activité pour le secteur de la menuiserie",
+      "Start-up éditant une solution de planning pour le secteur de la menuiserie",
   },
   {
     name: "Masteos",
@@ -29,17 +29,16 @@ const companies = [
   {
     name: "Métropole de Lyon",
     description:
-      "Réseau social d'entrepreneurs lyonnais mettant en lien différents corps de métiers et incubateurs",
+      "Réseau social d'entrepreneurs lyonnais mettant en lien différents corps de métiers",
   },
   {
-    name: "Astek",
+    name: "Scouts d'Europe",
     description:
-      "ESN internationale — Prestation pour le client les Scouts d'Europe",
+      "Digitalisation de la gestion de l'association et de ses membres",
   },
   {
-    name: "Sopra Steria",
-    description:
-      "ESN européenne — Prestation pour le centre de services de la SNCF",
+    name: "SNCF",
+    description: "Logiciel de reporting pour un centre de services",
   },
 ];
 
