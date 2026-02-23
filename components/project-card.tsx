@@ -44,7 +44,7 @@ export function ProjectCard({
   return (
     <MagicCard
       className="h-full overflow-hidden group hover:shadow-lg transition-shadow flex flex-col rounded-xl"
-      gradientColor="#D9D9D955"
+      gradientColor="#9c40ff10"
     >
       <div className="relative h-48 shrink-0 overflow-hidden">
         <Image

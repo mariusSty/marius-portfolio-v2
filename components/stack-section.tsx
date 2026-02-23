@@ -34,10 +34,7 @@ const secondaryStack = [
 
 export function StackSection() {
   return (
-    <section
-      id="stack"
-      className="py-24 px-6 bg-[radial-gradient(circle_at_center,_var(--muted)_1px,_transparent_1px)] bg-[length:24px_24px]"
-    >
+    <section id="stack" className="py-24 px-6 overflow-hidden">
       <div className="max-w-3xl mx-auto">
         <div className="space-y-4 mb-16 text-center">
           <h2 className="text-3xl font-bold tracking-tight">
@@ -48,38 +45,40 @@ export function StackSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-4">
-          {mainStack.map((tool) => (
-            <div
-              key={tool.name}
-              className="group flex flex-col items-center justify-center gap-2 w-full aspect-square border border-muted bg-card p-4 transition-all duration-300 group-hover:shadow-md group-hover:border-primary/30"
-            >
-              <StackIcon
-                name={tool.icon as Parameters<typeof StackIcon>[0]["name"]}
-                className="w-10 h-10 grayscale group-hover:grayscale-0 group-hover:-translate-y-2 transition-all duration-300"
-              />
-              <span className="text-xs text-muted-foreground opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
-                {tool.name}
-              </span>
-            </div>
-          ))}
-        </div>
+        <div className="relative">
+          <div className="grid grid-cols-4 gap-px border-2 bg-border">
+            {mainStack.map((tool) => (
+              <div
+                key={tool.name}
+                className="group flex flex-col items-center justify-center gap-2 w-full aspect-square bg-card p-4 transition-all duration-300 hover:bg-muted/30"
+              >
+                <StackIcon
+                  name={tool.icon as Parameters<typeof StackIcon>[0]["name"]}
+                  className="w-10 h-10 grayscale group-hover:grayscale-0 group-hover:-translate-y-2 transition-all duration-300"
+                />
+                <span className="text-xs text-muted-foreground opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+                  {tool.name}
+                </span>
+              </div>
+            ))}
+          </div>
 
-        <div className="grid grid-cols-8">
-          {secondaryStack.map((tool) => (
-            <div
-              key={tool.name}
-              className="group flex flex-col items-center justify-center gap-1 w-full aspect-square border border-muted bg-card p-2 transition-all duration-300 group-hover:shadow-md group-hover:border-primary/30"
-            >
-              <StackIcon
-                name={tool.icon as Parameters<typeof StackIcon>[0]["name"]}
-                className="w-6 h-6 grayscale group-hover:grayscale-0 group-hover:-translate-y-1 transition-all duration-300"
-              />
-              <span className="text-[10px] text-muted-foreground opacity-0 translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
-                {tool.name}
-              </span>
-            </div>
-          ))}
+          <div className="grid grid-cols-8 gap-px border-2   bg-border -mt-px">
+            {secondaryStack.map((tool) => (
+              <div
+                key={tool.name}
+                className="group flex flex-col items-center justify-center gap-1 w-full aspect-square bg-card p-2 transition-all duration-300 hover:bg-muted/30"
+              >
+                <StackIcon
+                  name={tool.icon as Parameters<typeof StackIcon>[0]["name"]}
+                  className="w-6 h-6 grayscale group-hover:grayscale-0 group-hover:-translate-y-1 transition-all duration-300"
+                />
+                <span className="text-[10px] text-muted-foreground opacity-0 translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+                  {tool.name}
+                </span>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

@@ -1,6 +1,7 @@
 "use client";
 
 import { Card } from "@/components/ui/card";
+import { Meteors } from "@/components/ui/meteors";
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useState } from "react";
 
@@ -68,9 +69,10 @@ export function CompaniesSection() {
   return (
     <section
       id="companies"
-      className="py-24 px-6 bg-gradient-to-b from-muted/20 to-background"
+      className="py-24 px-6 bg-linear-to-b from-muted/20 to-background relative overflow-hidden"
     >
-      <div className="max-w-4xl mx-auto">
+      <Meteors number={10} />
+      <div className="max-w-4xl mx-auto relative z-10">
         <div className="space-y-4 mb-16 text-center">
           <h2 className="text-3xl font-bold tracking-tight">
             Ils m&apos;ont fait confiance
