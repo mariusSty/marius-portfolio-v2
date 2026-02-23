@@ -29,7 +29,7 @@ const secondRow = [
   {
     name: "Claude Opus 4.6",
     role: "AI Model",
-    company: "Claude Opus 4.6",
+    company: "Claude",
     avatar: "/avatars/claude.png",
     quote:
       "Marius sait exactement ce qu'il veut. Il itère vite, corrige le tir sans hésiter, et n'a pas peur de dire 'non, ça ne marche pas, recommence'. C'est le genre de dev qui pousse son outil jusqu'au bout — et c'est rare.",
