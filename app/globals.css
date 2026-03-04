@@ -186,3 +186,24 @@
 html {
   scroll-behavior: smooth;
 }
+
+/* Prose styles for privacy policy / legal pages */
+.prose-custom h2 {
+  @apply text-xl font-semibold tracking-tight mt-8 mb-3;
+}
+
+.prose-custom h3 {
+  @apply text-base font-semibold mt-5 mb-2;
+}
+
+.prose-custom p {
+  @apply text-muted-foreground leading-relaxed mb-3;
+}
+
+.prose-custom ul {
+  @apply list-disc list-inside space-y-1.5 text-muted-foreground mb-3 ml-2;
+}
+
+.prose-custom a {
+  @apply text-foreground underline underline-offset-4 hover:text-muted-foreground transition-colors;
+}
